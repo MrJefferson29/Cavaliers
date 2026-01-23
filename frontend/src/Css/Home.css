@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap&family=Hammersmith+One&family=Londrina+Solid:wght@900&display=swap');
+.bg-planet-svg {
+    position: absolute;
+    top: 250px;
+    right: -205px;
+    z-index: -5;
+    width: 450px;
+}
+
+.bg-planet2-svg {
+    position: absolute;
+    bottom: -125px;
+    left: -180px;
+    z-index: -5;
+    width: 450px;
+    opacity: 0.8;
+}
+
+.bg-planet3-svg {
+    position: absolute;
+    top: -65px;
+    left: -170px;
+    z-index: -5;
+    width: 450px;
+    opacity: 0.8;
+}
+
+/* Legacy styles - now using styled-components in CardStory.js */
+/* Keeping for backward compatibility if needed */
+
+.story-card-wrapper {
+    /* Styles moved to styled-components */
+}
+
+.story-card {
+    /* Styles moved to styled-components */
+}
+
+.story-card a.story-link {
+    text-decoration: none;
+}
+
+/* Background decorative elements - keeping for potential use */
+.bg-planet-svg,
+.bg-planet2-svg,
+.bg-planet3-svg {
+    display: none; /* Hidden by default, can be enabled if needed */
+}
+
+@media only screen and (max-width: 1050px) {
+    .bg-planet3-svg,
+    .bg-planet-svg,
+    .bg-planet2-svg {
+        display: none;
+    }
+}

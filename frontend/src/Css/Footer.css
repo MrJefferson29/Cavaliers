@@ -1,0 +1,14 @@
+/* Footer styles are now handled by styled-components in Footer.js */
+/* Keeping this file for backward compatibility if needed */
+
+.footer {
+    /* Styles moved to styled-components */
+}
+
+.copyright {
+    /* Styles moved to styled-components */
+}
+
+.copyright .copyright-blog {
+    /* Styles moved to styled-components */
+}
