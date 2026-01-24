@@ -223,6 +223,21 @@ const DetailStory = () => {
                 <strong style={{ color: "#1e3d33" }}>Color:</strong> {story.color}
               </p>
             )}
+            <p>
+              <strong style={{ color: "#1e3d33" }}>Availability:</strong> 
+              <span style={{ 
+                color: story.availability === 'available' ? '#155724' : 
+                       story.availability === 'reserved' ? '#856404' : '#721c24',
+                fontWeight: 'bold',
+                marginLeft: '0.5rem',
+                padding: '0.2rem 0.5rem',
+                borderRadius: '12px',
+                backgroundColor: story.availability === 'available' ? '#e8f5e8' : 
+                                story.availability === 'reserved' ? '#fff3cd' : '#f8d7da'
+              }}>
+                {(story.availability || 'available').charAt(0).toUpperCase() + (story.availability || 'available').slice(1)}
+              </span>
+            </p>
             <p style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #e8e8e0' }}>
               <strong style={{ color: "#1e3d33" }}>Health Status:</strong> <span style={{ color: "#2d5a4a" }}>Healthy and Vetted</span>
             </p>

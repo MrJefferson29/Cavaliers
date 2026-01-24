@@ -27,6 +27,7 @@ const AddStory = () => {
   const [error, setError] = useState("");
   const [color, setColor] = useState("");
   const [sex, setSex] = useState("");
+  const [availability, setAvailability] = useState("available");
   const [isLoading, setIsLoading] = useState(false);
 
   const clearInputs = () => {
@@ -38,6 +39,7 @@ const AddStory = () => {
     setImage("");
     setFiles([]);
     setSex("");
+    setAvailability("available");
     editorEl.current.editor.setData("");
   };
   const handleFileChange = (e) => {
@@ -80,6 +82,7 @@ const handleSubmit = async (e) => {
   formdata.append("weight", weight);
   formdata.append("color", color);
   formdata.append("sex", sex);
+  formdata.append("availability", availability);
   
   // Append all files
   files.forEach((file) => {
@@ -170,6 +173,17 @@ const handleSubmit = async (e) => {
               <option value="">Select sex</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
+            </select>
+            <select
+              className="inp"
+              id="availability"
+              onChange={(e) => setAvailability(e.target.value)}
+              value={availability}
+              style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+            >
+              <option value="available">Available</option>
+              <option value="reserved">Reserved</option>
+              <option value="adopted">Adopted</option>
             </select>
           </Col>
           <Col md="6">

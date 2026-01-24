@@ -37,7 +37,12 @@ const Story = ({ story }) => {
             dangerouslySetInnerHTML={{ __html: truncateContent(story.content) + "..." }}
           />
           <Footer>
-            <Price>$ {story.price}</Price>
+            <PriceSection>
+              <Price>$ {story.price}</Price>
+              <Status availability={story.availability || 'available'}>
+                {(story.availability || 'available').charAt(0).toUpperCase() + (story.availability || 'available').slice(1)}
+              </Status>
+            </PriceSection>
             <Button>Get me now</Button>
           </Footer>
         </ContentWrapper>
@@ -159,12 +164,43 @@ const Footer = styled.div`
   border-top: 1px solid #e8e8e0;
 `;
 
+const PriceSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
+
 const Price = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
   font-weight: bold;
   color: #1e3d33;
   margin: 0;
+`;
+
+const Status = styled.span`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+  background-color: ${props => {
+    switch(props.availability) {
+      case 'available': return '#e8f5e8';
+      case 'reserved': return '#fff3cd';
+      case 'adopted': return '#f8d7da';
+      default: return '#e8f5e8';
+    }
+  }};
+  color: ${props => {
+    switch(props.availability) {
+      case 'available': return '#155724';
+      case 'reserved': return '#856404';
+      case 'adopted': return '#721c24';
+      default: return '#155724';
+    }
+  }};
 `;
 
 const Button = styled.button`

@@ -44,6 +44,11 @@ const StorySchema = new mongoose.Schema({
         enum: ['male', 'female'],
         required: [true, "Please provide the sex"],
     },
+    availability: {
+        type: String,
+        enum: ['available', 'reserved', 'adopted'],
+        default: 'available'
+    },
     imageUrls: {
         type: [String],
         default: [],

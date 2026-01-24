@@ -13,7 +13,7 @@ const handleUpload = async (file) => {
 };
 
 const addStory = async (req, res, next) => {
-    const { title, content, price, weight, age, color, sex } = req.body;
+    const { title, content, price, weight, age, color, sex, availability } = req.body;
 
     if (!req.files || req.files.length === 0) {
         return res.status(400).json({ error: 'Please upload at least one image' });
@@ -45,6 +45,7 @@ const addStory = async (req, res, next) => {
             age,
             color,
             sex,
+            availability: availability || 'available',
             author: req.user._id,
             readtime,
             imageUrls,
@@ -160,7 +161,7 @@ const editStoryPage  =asyncErrorWrapper(async(req,res,next)=>{
 
 const editStory  =asyncErrorWrapper(async(req,res,next)=>{
     const {slug } = req.params ; 
-    const {title ,content ,previousImages, price, weight, age, color, sex } = req.body;
+    const {title ,content ,previousImages, price, weight, age, color, sex, availability } = req.body;
 
     const story = await Story.findOne({slug : slug })
 
@@ -171,6 +172,7 @@ const editStory  =asyncErrorWrapper(async(req,res,next)=>{
     story.age = age;
     story.color = color;
     story.sex = sex;
+    story.availability = availability || story.availability;
 
     // Handle multiple images
     if (req.files && req.files.length > 0) {

@@ -24,6 +24,7 @@ const EditStory = () => {
     const [content, setContent] = useState('')
     const [color, setColor] = useState('')
     const [sex, setSex] = useState('')
+    const [availability, setAvailability] = useState('available')
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
     const navigate = useNavigate()
@@ -42,6 +43,7 @@ const EditStory = () => {
                 setContent(data.data.content)
                 setColor(data.data.color || '')
                 setSex(data.data.sex || '')
+                setAvailability(data.data.availability || 'available')
                 // Handle both old imageUrl and new imageUrls
                 const images = data.data.imageUrls || (data.data.imageUrl ? [data.data.imageUrl] : [])
                 setPreviousImages(images)
@@ -96,6 +98,7 @@ const EditStory = () => {
         formdata.append("price", price)
         formdata.append("color", color)
         formdata.append("sex", sex)
+        formdata.append("availability", availability)
         formdata.append("previousImages", JSON.stringify(previousImages))
         
         // Append new files
@@ -192,6 +195,16 @@ const EditStory = () => {
                                         <option value="">Select sex</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
+                                    </select>
+                                    <select
+                                        className="inp"
+                                        onChange={(e) => setAvailability(e.target.value)}
+                                        value={availability}
+                                        style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+                                    >
+                                        <option value="available">Available</option>
+                                        <option value="reserved">Reserved</option>
+                                        <option value="adopted">Adopted</option>
                                     </select>
                                 </Col>
                             </Row>
