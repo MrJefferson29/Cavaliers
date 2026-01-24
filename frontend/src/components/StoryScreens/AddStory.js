@@ -81,7 +81,7 @@ const handleSubmit = async (e) => {
   });
 
   try {
-    const { data } = await axios.post("http://localhost:5000/story/addstory", formdata, config);
+    const { data } = await axios.post("https://cavaliers-t4tr.onrender.com/story/addstory", formdata, config);
     setSuccess("Story posted successfully, GOOD JOB!");
 
     clearInputs();

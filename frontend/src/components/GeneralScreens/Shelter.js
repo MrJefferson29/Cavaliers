@@ -25,7 +25,7 @@ const Shelter = () => {
       setLoading(true)
       try {
 
-        const { data } = await axios.get(`http://localhost:5000/story/getAllStories?search=${searchKey || ""}&page=${page}`)
+        const { data } = await axios.get(`https://cavaliers-t4tr.onrender.com/story/getAllStories?search=${searchKey || ""}&page=${page}`)
 
         if (searchKey) {
           navigate({

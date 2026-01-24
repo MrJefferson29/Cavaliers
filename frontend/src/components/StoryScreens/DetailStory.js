@@ -53,7 +53,7 @@ const DetailStory = () => {
       setLoading(true);
       var activeUser = {};
       try {
-        const { data } = await axios.get("http://localhost:5000/auth/private", {
+        const { data } = await axios.get("https://cavaliers-t4tr.onrender.com/auth/private", {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -66,7 +66,7 @@ const DetailStory = () => {
       }
 
       try {
-        const { data } = await axios.post(`http://localhost:5000/story/${slug}`, { activeUser });
+        const { data } = await axios.post(`https://cavaliers-t4tr.onrender.com/story/${slug}`, { activeUser });
         setStory(data.data);
         setLikeStatus(data.likeStatus);
         setLikeCount(data.data.likeCount);
@@ -96,7 +96,7 @@ const DetailStory = () => {
     }, 1500);
 
     try {
-      const { data } = await axios.post(`http://localhost:5000/story/${slug}/like`, { activeUser }, {
+      const { data } = await axios.post(`https://cavaliers-t4tr.onrender.com/story/${slug}/like`, { activeUser }, {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -115,7 +115,7 @@ const DetailStory = () => {
   const handleDelete = async () => {
     if (window.confirm("Do you want to delete this post")) {
       try {
-        await axios.delete(`http://localhost:5000/story/${slug}/delete`, {
+        await axios.delete(`https://cavaliers-t4tr.onrender.com/story/${slug}/delete`, {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -136,7 +136,7 @@ const DetailStory = () => {
 
   const addStoryToReadList = async () => {
     try {
-      const { data } = await axios.post(`http://localhost:5000/user/${slug}/addStoryToReadList`, { activeUser }, {
+      const { data } = await axios.post(`https://cavaliers-t4tr.onrender.com/user/${slug}/addStoryToReadList`, { activeUser }, {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${localStorage.getItem("authToken")}`,

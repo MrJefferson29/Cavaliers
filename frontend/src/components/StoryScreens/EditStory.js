@@ -32,8 +32,8 @@ const EditStory = () => {
 
         const getStoryInfo = async () => {
             setLoading(true)
-            try {
-                const { data } = await axios.get(`https://sparko.onrender.com/story/editStory/${slug}`, config)
+            try {   
+                const { data } = await axios.get(`https://cavaliers-t4tr.onrender.com/story/editStory/${slug}`, config)
                 setStory(data.data)
                 setTitle(data.data.title)
                 setAge(data.data.age)
@@ -104,7 +104,7 @@ const EditStory = () => {
         });
 
         try {
-            const { data } = await axios.put(`https://sparko.onrender.com/story/${slug}/edit`, formdata, config)
+            const { data } = await axios.put(`https://cavaliers-t4tr.onrender.com/story/${slug}/edit`, formdata, config)
 
             setSuccess('Edit Story successfully ')
 

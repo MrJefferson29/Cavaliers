@@ -27,7 +27,7 @@ const EditProfile = () => {
         formdata.append("photo", photo)
 
         try {
-            const { data } = await axios.post("https://sparko.onrender.com/user/editProfile", formdata, config)
+            const { data } = await axios.post("https://cavaliers-t4tr.onrender.com/user/editProfile", formdata, config)
 
             setSuccess('Edit Profile successfully ')
             setTimeout(() => {
@@ -119,7 +119,7 @@ const EditProfile = () => {
                                     <div class="absolute">
                                         Currently Image
                                     </div>
-                                    <img src={`https://sparko.onrender.com/userPhotos/${previousPhoto}`} alt="userPhoto" />
+                                    <img src={`https://cavaliers-t4tr.onrender.com/userPhotos/${previousPhoto}`} alt="userPhoto" />
                                 </div>
 
                             </div>

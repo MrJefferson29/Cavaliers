@@ -24,7 +24,7 @@ const RegisterScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/auth/register",
+        "https://cavaliers-t4tr.onrender.com/auth/register",
         {
           username,
           email,

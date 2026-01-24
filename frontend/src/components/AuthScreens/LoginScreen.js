@@ -14,7 +14,7 @@ const LoginScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/auth/login",
+        "https://cavaliers-t4tr.onrender.com/auth/login",
         { email, password }
       );
       localStorage.setItem("authToken", data.token);
