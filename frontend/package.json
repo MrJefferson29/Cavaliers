@@ -25,6 +25,7 @@
         "react-router-dom": "^6.15.0",
         "react-scripts": "5.0.0",
         "react-slick": "^0.30.3",
+        "sass": "^1.77.0",
         "slick-carousel": "^1.8.1",
         "styled-components": "^6.0.7",
         "typicons.font": "^2.1.2",
@@ -54,5 +55,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "overrides": {
+        "node-sass": "npm:sass@^1.77.0"
     }
 }
