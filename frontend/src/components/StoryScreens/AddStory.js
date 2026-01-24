@@ -9,6 +9,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { Row, Col } from "react-bootstrap";
 // import b2 from '../../Assets/b2.jpg'
 import { AiOutlineUpload } from 'react-icons/ai';
+import styled from "styled-components";
 import "../../Css/AddStory.css";
 
 const AddStory = () => {
@@ -26,6 +27,7 @@ const AddStory = () => {
   const [error, setError] = useState("");
   const [color, setColor] = useState("");
   const [sex, setSex] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const clearInputs = () => {
     setTitle("");
@@ -66,6 +68,10 @@ const handleSubmit = async (e) => {
     return;
   }
 
+  setIsLoading(true);
+  setError("");
+  setSuccess("");
+
   const formdata = new FormData();
   formdata.append("title", title);
   formdata.append("content", content);
@@ -93,6 +99,8 @@ const handleSubmit = async (e) => {
       setError("");
     }, 7000);
     setError(error.response?.data?.error || "An error occurred");
+  } finally {
+    setIsLoading(false);
   }
 };
 
@@ -199,12 +207,105 @@ const handleSubmit = async (e) => {
                         onChange={handleFileChange} 
                     />
                 </div>
-        <button type="submit" className="addStory-btn">
-          Publish{" "}
+        <button type="submit" className="addStory-btn" disabled={isLoading}>
+          {isLoading ? (
+            <ButtonContent>
+              <Spinner />
+              <span>Uploading...</span>
+            </ButtonContent>
+          ) : (
+            "Publish"
+          )}
         </button>
+        {isLoading && (
+          <LoadingOverlay>
+            <LoadingMessage>
+              <SpinnerLarge />
+              <p>Uploading your story and images...</p>
+              <p className="sub-text">Please wait, this may take a moment</p>
+            </LoadingMessage>
+          </LoadingOverlay>
+        )}
       </form>
     </div>
   );
 };
+
+const ButtonContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
+const Spinner = styled.div`
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const LoadingOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+`;
+
+const LoadingMessage = styled.div`
+  background-color: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+
+  p {
+    margin: 1rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e3d33;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sub-text {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+`;
+
+const SpinnerLarge = styled.div`
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f0f0f0;
+  border-top-color: #1e3d33;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1.5rem;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 export default AddStory;
