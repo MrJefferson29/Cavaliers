@@ -54,7 +54,7 @@ export default function Header() {
             <Link className="link" to="/all-pets">Available Puppies</Link>
             <Link className="link" to="/health-guarantee">Health Guarantee</Link>
             <Link className="link" to="/about">Memory Lane</Link>
-            <Link className="link" to="/contact-us">Contact Us</Link>
+            <Link className="link" to="/contact-us">Purchase Process</Link>
           </div>
         )}
         {isMobile && <Navbar />} {/* Render Navbar only on mobile screens */}

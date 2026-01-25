@@ -57,7 +57,7 @@ function Navbar() {
             <ProductItem onClick={() => handleNavigate('/all-pets')}>Available Puppies</ProductItem>
             <ProductItem onClick={() => handleNavigate('/health-guarantee')}>Health Guarantee</ProductItem>
             <ProductItem onClick={() => handleNavigate('/about')}>Memory Lane</ProductItem>
-            <ProductItem onClick={() => handleNavigate('/contact-us')}>Contact Us</ProductItem>
+            <ProductItem onClick={() => handleNavigate('/contact-us')}>Purchase Process</ProductItem>
           </ProductList>
         </Offcanvas.Body>
       </Offcanvas>

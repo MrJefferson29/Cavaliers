@@ -15,7 +15,6 @@ const StorySchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, "What is the puppy weight"],
-
     },
 
     content: {

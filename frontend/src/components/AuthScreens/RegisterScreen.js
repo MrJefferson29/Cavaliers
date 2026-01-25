@@ -31,9 +31,7 @@ const RegisterScreen = () => {
           password,
         }
       );
-
       localStorage.setItem("authToken", data.token);
-
       setTimeout(() => {
         navigate('/');
       }, 1800)
