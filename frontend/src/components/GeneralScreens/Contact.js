@@ -431,7 +431,7 @@ const Contact = () => {
       <NeedHelpBox>
         <NeedHelpTitle>Need Help?</NeedHelpTitle>
         <NeedHelpText>
-          Welcoming a Cavalier Crownpup Cavaliers or any new puppy into your home is an exciting adventure filled with joy and challenges. We're here to guide you every step of the way—from choosing the right puppy to tips on care, training, and creating a happy home. Reach out anytime with your questions.
+          Welcoming a Crownpup Cavalier or any new puppy into your home is an exciting adventure filled with joy and challenges. We're here to guide you every step of the way—from choosing the right puppy to tips on care, training, and creating a happy home. Reach out anytime with your questions.
         </NeedHelpText>
       </NeedHelpBox>
     </ContactUsContainer>
