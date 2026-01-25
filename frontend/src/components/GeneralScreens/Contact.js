@@ -313,8 +313,8 @@ const Contact = () => {
           Our mission is simple: sell <strong>SOCIALIZED PUPPIES</strong>—purebred, family, home raised, AKC, kid friendly, other pet friendly Cavalier puppies.
         </MissionText>
         <PoliciesList>
-          <li>The Down Payment Deposit Fee of $300 is non-refundable.</li>
-          <li>The Fee to reserve a puppy can be processed online or by phone with a Debit or Credit Card.</li>
+          <li>The Down Payment Deposit Fee of $300 is refundable.</li>
+          <li>The Fee to reserve a puppy can be processed online or by phone via  Apple Pay, Chime and Zelle.</li>
           <li>Upon completion of the sale, the down payment fee will be deducted from the sale price of the puppy.</li>
           <li>In the event that more than one person reserves the same puppy, the puppy will be sold to the person who first submits the down payment. Other interested buyer(s) will have the option to choose another puppy or receive a 100% refund of the down payment.</li>
           <li>Puppies being held more than 3–4 weeks beyond the age of 8–10 weeks may require additional payments (up to 1/2 the total price) to hold the puppy, to be determined on a case-by-case basis.</li>
