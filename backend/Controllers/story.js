@@ -141,7 +141,7 @@ const likeStory =asyncErrorWrapper(async(req,res,next)=>{
         data : story
     })
 
-});
+})
 
 const editStoryPage  =asyncErrorWrapper(async(req,res,next)=>{
     const {slug } = req.params ; 
